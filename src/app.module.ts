@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { NotesModule } from './notes/notes.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Note } from './notes/note.entity';
+import { UsersModule } from './users/users.module';
+import { User } from './users/users.entity';
 
 @Module({
   imports: [
@@ -14,11 +16,12 @@ import { Note } from './notes/note.entity';
       username: 'pweb',
       password: 'pweb',
       database: 'nest_test',
-      entities: [Note],
+      entities: [Note, User],
       synchronize: true
     }),
     TypeOrmModule.forFeature([Note]),
-    NotesModule
+    NotesModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],
