@@ -5,7 +5,7 @@ import * as TelegramBot from 'node-telegram-bot-api';
 @Injectable()
 export class BotService {
     private bot: TelegramBot;
-    private chatId: string = "7663447196"
+    private chatId: string = "1006525845"
 
     constructor() {
         const token = "7663447196:AAEvqpNDvykuIm5UwpJl5se-vYkqXLE_dNo"
