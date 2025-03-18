@@ -49,7 +49,4 @@ export class BotService {
         });
     }
 
-    // sendMessage(chatId: number, text: string) {
-    //     this.bot.sendMessage(chatId, text);
-    // }
 }
