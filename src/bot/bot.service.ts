@@ -32,7 +32,7 @@ export class BotService {
                   [
                     {
                       text: 'Открыть Web App',
-                      web_app: { url: 'https://educator-ten.vercel.app/' },  // Укажи URL твоего веб-приложения
+                      web_app: { url: 'https://brav1olly.github.io/check-tma/' },  // Укажи URL твоего веб-приложения
                     },
                   ],
                 ],
