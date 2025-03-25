@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: pweb
+      POSTGRES_PASSWORD: pweb
+      POSTGRES_DB: nest_test
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: nest_app
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: nestuser
+      DATABASE_PASSWORD: nestpassword
+      DATABASE_NAME: nestdb
+    ports:
+      - "3000:3001"
+    command: ["npm", "run", "start:prod"]
+
+volumes:
+  pgdata:
+
+
+# @Module({
+#   imports: [
+#     TypeOrmModule.forRoot({
+#       type: 'postgres',
+#       host: 'localhost',
+#       port: 5432,
+#       username: 'pweb',
+#       password: 'pweb',
+#       database: 'nest_test',
+#       entities: [Note, User],
+#       synchronize: true
+#     }),
+#     TypeOrmModule.forFeature([Note]),
+#     NotesModule,
+#     UsersModule,
+#     BotModule
+#   ],
+#   controllers: [AppController],
+#   providers: [AppService],
+# })

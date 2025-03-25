@@ -12,7 +12,8 @@ import { BotModule } from './bot/bot.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      // host: 'localhost',
+      host: 'db',
       port: 5432,
       username: 'pweb',
       password: 'pweb',
